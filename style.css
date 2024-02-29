@@ -279,7 +279,8 @@ section {
     flex-direction: column;
 }
 
-.about-containers,.about-details-container {
+.about-containers,
+.about-details-container {
     display: flex;
 }
 
@@ -300,6 +301,7 @@ section {
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
+    text-align: center;
 }
 
 .section-container {
@@ -418,4 +420,15 @@ article .icon {
 
 .email-icon {
     height: 2.5rem;
+}
+
+/* FOOTER SECTION */
+
+footer {
+    height: 26vh;
+    margin: 0.1rem;
+}
+
+footer p {
+    text-align: center;
 }
