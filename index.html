@@ -5,10 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
 </head>
 <body>
+
+    <script src="three.cjs"></script>
+    <script type="module" src="GLTFLoader.js"></script>
+    <script type="module">
+        import {GLTFLoader} from "./GLTFLoader.js";
+
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(
+            75, window.innerWidth / window.innerHeight,
+            0.01,
+            1000
+        );
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        var loader = new GLTFLoader();
+        var obj;
+        loader.load("Cokecan.gltf", function(gltf){
+            obj = gltf.Cokecan;
+            scene.add(gltf.scene);
+        });
+
+        scene.background = new THREE.Color(Oxffffff)
+        var light = new THREE.HemisphereLight(0xffffff, 0x000000, 2);
+        scene.add(light);
+        camera.position.set(0, 0, 10);
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(Cokecan, camera);
+        }
+    
+    </script>
+
     <nav id="desktop-nav">
         <div class ="logo">Nathan Hor</div>
         <div>
